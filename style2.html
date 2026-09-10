@@ -1,83 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage - Stylesheet 2</title>
-  <style>
-    body { font-family: Arial; background-color: #d14836; line-height: 20px; }
-    .wrapper { position: relative; overflow: auto; }
-    #top { color: #fff; padding: 15px; font-size: 30px; line-height: 26px; }
-    #menubar { width: 190px; float: right; }
-    #main { padding: 10px; background-color: #fff; font: 80% Verdana; }
-    #main h1, #main h2 { color: #d14836; }
-    #sidebar { background-color: #F6DAD7; color: #d14836; padding: 10px; }
-    #bottom { text-align: center; padding: 10px; font-size: 70%; color: #fff; }
-    .menuitem { width: 155px; background-color: #d14836; border: 1px solid #d14836; border-radius: 40px; color: #fff; list-style-type: none; margin: 10px; padding: 5px; text-align: center; cursor: pointer; }
-    .menuitem:nth-child(2) { background-color: white; color: #d14836; font-weight: bold; }
-    .menuitem:hover { background-color: #fff; color: #d14836; }
-    a { color: #d14836; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Stylesheet 2</title>
+    <style>
+        /* ===== 전체 페이지(body) 기본 설정 ===== */
+        body {
+            /* 글꼴: Arial, 없으면 sans-serif */
+            font-family: Arial, sans-serif;
+            /* 페이지 전체 배경색: 빨간색 */
+            background-color: #d14836;
+            /* 줄 간격 20px */
+            line-height: 20px;
+        }
+
+        /* ===== 가운데 영역을 감싸는 wrapper ===== */
+        .wrapper {
+            /* position: relative → 자식 요소 absolute 배치 시 기준점 */
+            position: relative;
+            /* 내용 넘치면 스크롤 */
+            overflow: auto;
+        }
+
+        /* ===== 상단 헤더 (#top) ===== */
+        #top {
+            /* 글자색: 흰색 (빨간 배경 위에 표시) */
+            color: white;
+            /* 안쪽 여백 */
+            padding: 15px;
+            /* #top 안 글자 기본 크기 30px (제목이 크게 보임) */
+            font-size: 30px;
+        }
+
+        /* #top 안의 h1만 */
+        #top h1 {
+            /* h1 기본 margin 제거 */
+            margin: 0;
+            /* 제목 줄 높이 50px */
+            line-height: 50px;
+        }
+
+        /* ===== 오른쪽 메뉴 바 ===== */
+        #menubar {
+            /* 메뉴 영역 너비 */
+            width: 190px;
+            /* float: right → 오른쪽으로 붙임 (style1은 left, style2는 right) */
+            float: right;
+        }
+
+        /* ===== 메뉴 목록(ul) ===== */
+        #menulist {
+            /* ul 기본 padding(왼쪽 들여쓰기) 제거 */
+            padding: 0;
+            /* 메뉴 글자 크기 16px */
+            font-size: 16px;
+        }
+
+        /* ===== 가운데 본문 (#main) ===== */
+        #main {
+            /* 안쪽 여백 */
+            padding: 10px;
+            /* 본문 배경: 흰색 박스 (빨간 body와 대비) */
+            background-color: white;
+            /* 본문만 Verdana 글꼴 사용 */
+            font-family: Verdana, sans-serif;
+            /* 글자 크기: body의 80% (조금 작게) */
+            font-size: 80%;
+        }
+
+        /* 본문 안의 h1, h2 제목만 */
+        #main h1,
+        #main h2 {
+            /* 제목 색: 빨간색 (테마 색) */
+            color: #d14836;
+        }
+
+        /* ===== 사이드바 (#sidebar) ===== */
+        #sidebar {
+            /* 배경: 연한 분홍 */
+            background-color: #F6DAD7;
+            /* 글자색: 빨간색 */
+            color: #d14836;
+            /* 안쪽 여백 */
+            padding: 10px;
+        }
+
+        /* ===== 하단 푸터 (#bottom) ===== */
+        #bottom {
+            /* 글자 가운데 정렬 */
+            text-align: center;
+            /* 안쪽 여백 */
+            padding: 10px;
+            /* 글자 크기 70% (작게) */
+            font-size: 70%;
+            /* 빨간 배경 위 흰 글자 */
+            color: white;
+        }
+
+        /* ===== 메뉴 각 항목(li) ===== */
+        .menuitem {
+            /* 버튼 너비 155px */
+            width: 155px;
+            /* 버튼 배경: 빨간색 (body와 같은 색) */
+            background-color: #d14836;
+            /* 테두리도 빨간색 */
+            border: 1px solid #d14836;
+            /* border-radius: 40px → 알약 모양처럼 둥근 버튼 */
+            border-radius: 40px;
+            /* 글자색: 흰색 */
+            color: white;
+            /* li 앞 동그라미(•) 제거 */
+            list-style-type: none;
+            /* 항목 바깥 여백 */
+            margin: 10px;
+            /* 항목 안쪽 여백 */
+            padding: 5px;
+            /* 글자 가운데 정렬 */
+            text-align: center;
+        }
+
+        /* 두 번째 메뉴 항목만 (:nth-child(2) = 2번째 자식) */
+        /* → 현재 페이지 Stylesheet 2 강조 */
+        .menuitem:nth-child(2) {
+            /* 배경 흰색, 글자 빨간색 (선택된 버튼 느낌) */
+            background-color: white;
+            color: #d14836;
+            /* 글자 굵게 */
+            font-weight: bold;
+        }
+
+        /* 메뉴에 마우스 올렸을 때 */
+        .menuitem:hover {
+            /* hover 시에도 선택된 것처럼 흰 배경 + 빨간 글자 */
+            background-color: white;
+            color: #d14836;
+        }
+
+        /* 메뉴 안 링크 기본 */
+        .menuitem a {
+            /* 링크 글자: 흰색 */
+            color: white;
+            /* 밑줄 없음 */
+            text-decoration: none;
+        }
+
+        /* 2번째 메뉴 또는 hover 중인 메뉴의 링크 */
+        .menuitem:nth-child(2) a,
+        .menuitem:hover a {
+            /* 흰 배경 위에서 보이도록 빨간 글자 */
+            color: #d14836;
+        }
+
+        /* ===== 본문 안 링크(a) ===== */
+        a {
+            /* 링크 색: 빨간색 */
+            color: #d14836;
+            /* 기본 밑줄 없음 */
+            text-decoration: none;
+        }
+
+        /* 링크 hover */
+        a:hover {
+            /* 마우스 올리면 밑줄 표시 */
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container wrapper">
-  <div id="top">
-    <h1>Welcome to My Homepage</h1>
-    <p>Use the menu to select different Stylesheets</p>
-  </div>
+    <div class="container wrapper">
+        <div id="top">
+            <h1>Welcome to My Homepage</h1>
+            <p>Use the menu to select different Stylesheets</p>
+        </div>
 
-  <div class="wrapper">
-    <div id="menubar">
-      <ul id="menulist">
-        <li class="menuitem"><a href="style1.html">Stylesheet 1</a></li>
-        <li class="menuitem"><a href="style2.html">Stylesheet 2</a></li>
-        <li class="menuitem"><a href="nostyle.html">No Stylesheet</a></li>
-      </ul>
+        <div class="wrapper">
+            <div id="menubar">
+                <ul id="menulist">
+                    <li class="menuitem"><a href="style1.html">Stylesheet 1</a></li>
+                    <li class="menuitem"><a href="style2.html">Stylesheet 2</a></li>
+                    <li class="menuitem"><a href="nostyle.html">No Stylesheet</a></li>
+                </ul>
+            </div>
+
+            <div id="main">
+                <h1>Same Page Different Stylesheets</h1>
+                <p>
+                    This is a demonstration of how different stylesheets can change the layout of your HTML page.
+                    You can change the layout of this page by selecting different stylesheets in the menu,
+                    or by selecting one of the following links:
+                    <a href="style1.html">Stylesheet1</a>,
+                    <a href="style2.html">Stylesheet2</a>.
+                </p>
+
+                <h2>No Styles</h2>
+                <p>
+                    This page uses DIV elements to group different sections of the HTML page.
+                    Click here to see how the page looks like with no stylesheet:
+                    <a href="nostyle.html">No Stylesheet</a>.
+                </p>
+            </div>
+
+            <div id="sidebar">
+                <h3>Side-Bar</h3>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet dolore magna aliquam erat volutpat.</p>
+            </div>
+        </div>
+
+        <div id="bottom">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+            laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
+            suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
+            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto
+            odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        </div>
     </div>
-
-    <div id="main">
-      <h1>Same Page Different Stylesheets</h1>
-      <p>
-        This is a demonstration of how different stylesheets can change the layout of your HTML page.
-        You can change the layout of this page by selecting different stylesheets in the menu,
-        or by selecting one of the following links:
-        <a href="style1.html">Stylesheet1</a>,
-        <a href="style2.html">Stylesheet2</a>.
-      </p>
-
-      <h2>No Styles</h2>
-      <p>
-        This page uses semantic elements to group different sections of the HTML page.
-        Click here to see how the page looks like with no stylesheet:
-        <a href="nostyle.html">No Stylesheet</a>.
-      </p>
-    </div>
-
-    <div id="sidebar">
-      <h3>Side-Bar</h3>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-        dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-        lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-        esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
-        dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-      </p>
-    </div>
-  </div>
-
-  <div id="bottom">
-    <p>
-      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-      dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
-      lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit
-      esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio
-      dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-    </p>
-  </div>
-</div>
 
 </body>
+
 </html>
